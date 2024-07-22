@@ -1,0 +1,11 @@
+.bg_img {
+    background-image: url('../../../public/images/sky.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.bg_img h3 {
+    margin: 0;
+    padding: 10px;
+}

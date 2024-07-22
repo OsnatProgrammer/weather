@@ -1,0 +1,9 @@
+.from {
+    max-width: 200px;
+    max-height: 200px;
+    margin: auto;  
+}
+
+.input {
+    margin-bottom: 10px;
+}

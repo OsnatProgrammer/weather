@@ -1,0 +1,44 @@
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.principalCard {
+    background: rgba(255, 255, 255, 0.164);
+    border-radius: 10px;
+    padding: 20px;
+    padding-bottom: 60px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.374);
+    max-width: 800px;
+    width: 100%;
+    margin: 20px;
+    position: relative;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.today {
+    margin-bottom: 20px;
+    width: 60%;
+    text-align: right;
+    padding-right: 20px;
+}
+
+.forecast {
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    width: 95%;
+    height: 100%;
+}
+
+.weatherIcon {
+    width: 80%;
+    height: 80%;
+}
