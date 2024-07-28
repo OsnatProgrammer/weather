@@ -13,6 +13,7 @@ export default function Home() {
     const [loadingWeather, setLoadingWeather] = useState(true);
     const [latlonLocation, setLatlonLocation] = useState({ lat: 31.7667, lon: 35.2333 })
     const [weather, setWeather] = useState([])
+    const [history, setHistory] = useState([])
 
     const { user } = useContext(UserContext);
 
@@ -37,6 +38,13 @@ export default function Home() {
             setWeather(weather);
             setLoadingWeather(false)
         })
+
+        const newHistory = [...history, currentCity];
+
+        if (newHistory.length > 5) {
+            newHistory.shift();
+        }
+        setHistory(newHistory)
     }
 
     async function handleClickSearch() {
