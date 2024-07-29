@@ -3,12 +3,15 @@
     top: 0;
     height: 65px;
     background: black;
+    z-index: 100;
 }
 
 .menu {
     display: flex;
     line-height: 65px;
     list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 .menu a {
