@@ -4,6 +4,7 @@ import { getAllCities, getLatAndLon, getWeather } from "../../services/service";
 import styles from "./home.module.css";
 import Search from './../search/search'
 import Weather from "../weather/weather";
+import Header from "../header/header";
 
 export default function Home() {
 
@@ -59,6 +60,7 @@ export default function Home() {
 
     return (
         <div className={styles.bg_img}>
+            <Header />
             <h3 className="center">שלום {user.First_Name} {user.Last_Name}</h3>
             {!loading ? (
                 <div>
