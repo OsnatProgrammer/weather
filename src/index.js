@@ -4,11 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { UserProvider } from './context/userContext';
+import { HistoryProvider } from './context/historyContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <UserProvider>
-    <App />
+    <HistoryProvider>
+      <App />
+    </HistoryProvider>
   </UserProvider>
 );
 

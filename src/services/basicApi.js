@@ -12,7 +12,6 @@ export const apiGet = async (_url) => {
                 user_name: currentUser.name
             }
         })
-        console.log("resp", resp);
         return resp;
     } catch (err) {
         throw err;
@@ -22,7 +21,6 @@ export const apiGet = async (_url) => {
 export const apiWeather = async (_url) => {
     try {
         let resp = await axios.get(_url)
-        console.log("resp", resp);
         return resp;
     } catch (err) {
         throw err;
