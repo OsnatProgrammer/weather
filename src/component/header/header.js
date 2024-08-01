@@ -9,6 +9,7 @@ export default function Header() {
         <div className={styles.header}>
             <ul className={styles.menu}>
                 <li><Link to="/">ראשי</Link></li>
+                <li><Link to="/mador">מדור</Link></li>
             </ul>
         </div>
     )
