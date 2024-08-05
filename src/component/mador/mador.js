@@ -1,30 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styles from "./mador.module.css";
 import { getSoldiers } from "../../services/service";
 import Header from '../header/header';
 import Soldiers from '../soldiers/soldiers';
+import { SoldierContext } from '../../context/soliderContex';
 
 export default function Mador() {
 
-    const [soldiers, setSoldiers] = useState([])
-    const [openPopup, setOpenPopup] = useState(false)
+    const { setSoldiers, openPopup, setOpenPopup } = useContext(SoldierContext);
 
     useEffect(() => {
         getAllSoldiers()
     }, [])
 
-    useEffect(() => {
-        getAllSoldiers()
-    }, [setOpenPopup])
 
     const getAllSoldiers = () => {
         getSoldiers().then(data => setSoldiers(data.data))
     }
 
+
     return (
         <div>
             <Header />
-            5555
             <div className={openPopup ? styles.blurred : ''}>
                 <div className={styles.container}>
                     {!openPopup ?

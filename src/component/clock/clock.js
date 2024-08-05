@@ -21,7 +21,7 @@ export default function Clock() {
 
     return (
         <div>
-            <p>{time.toLocaleDateString()} {formatTime(time)} </p>
+            <p style={{ margin: "0px" }}>{time.toLocaleDateString()} {formatTime(time)} </p>
         </div>
     );
 };

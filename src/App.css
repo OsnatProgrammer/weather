@@ -14,6 +14,7 @@ body {
   border: white;
   padding: 6px 8px;
   margin-top: 10px;
+  cursor: pointer;
 }
 
 .button :hover {
@@ -22,9 +23,19 @@ body {
   border: rgb(69, 124, 233);
 }
 
+.soliderbutton {
+  background-color: rgb(188, 189, 190);
+  color: white;
+  border-radius: 5px;
+  border: 1.5px solid rgb(91, 93, 93);
+  padding: 4px 25px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
 .center {
   text-align: center;
   align-items: center;
   margin: 0 auto;
-  
+
 }
