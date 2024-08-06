@@ -1,0 +1,8 @@
+select  {
+    border: 0px;
+    outline: 0px;
+    border: none;
+    background-color: #f8f8f8;
+    padding: 5px 5px 5px 15px;
+    border: 1px solid #f8f8f8;
+}

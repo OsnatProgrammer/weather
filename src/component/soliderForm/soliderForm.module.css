@@ -1,6 +1,22 @@
-.input{
-    border: solid 0px gray  ;
+.input {
+    border: solid 0px gray;
     display: block;
     border-bottom-width: 1px;
     background: none;
+    width: 100%;
+    line-height: 3;
+}
+
+.input:focus {
+    outline: none;
+}
+
+.filed {
+    margin: 10px 50px;
+}
+
+.buttonForm {
+    display: flex;
+    justify-content: end;
+    margin: 20px 0px;
 }

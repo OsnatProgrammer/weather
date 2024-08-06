@@ -1,0 +1,14 @@
+.card {
+    background-color: rgb(198, 191, 191);
+    border-radius: 8px;
+    width: 20%;
+    display: flex;
+}
+
+.imgCard {
+    width: 25%;
+}
+
+.text {
+    width: 75%;
+}
