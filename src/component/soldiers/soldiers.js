@@ -19,9 +19,18 @@ export default function Soldiers() {
                     <line x1="18" y1="6" x2="6" y2="18" />
                     <line x1="6" y1="6" x2="18" y2="18" />
                 </svg>
-                <HeaderForm />
-                <SoliderForm />
-                <SoliderArray />
+                <div className={styles.headerFormContainer}>
+                    <HeaderForm />
+                    <SoliderForm />
+                </div>
+                <div className={styles.scrollableSoldierArray}>
+                    <SoliderArray />
+                </div>
+                <div className="displayButton">
+                    <button className="button">שמירה</button>
+                </div>
+
+
             </div>
         </div>
     )
