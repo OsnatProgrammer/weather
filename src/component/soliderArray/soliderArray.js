@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import SoliderCard from "../solider/soliderCard";
 import { SoldierContext } from "../../context/soliderContex";
 import style from "./soliderArray.module.css";
+import SelectSort from "../selectSort/selectSort";
 
 export default function SoliderArray() {
 
@@ -33,18 +34,8 @@ export default function SoliderArray() {
     const categorizedSoldiers = categorizeSoldiers();
 
     return (
-        <div className={style.container}>
-            <div style={{ margin: '15px' }}>
-                סדר לפי:
-                <select onChange={(e) => setFilterType(e.target.value)}>
-                    <option value="City">עיר</option>
-                    <option value="City_Location">מיקום עיר בארץ</option>
-                    <option value="Gender">מין</option>
-                    <option value="Role_Rank">תפקיד + דרגה</option>
-                </select>
-            </div>
-            <hr />
-
+        <div >
+            <SelectSort setFilterType={setFilterType} />
             {Object.keys(categorizedSoldiers).map(category => (
                 <div key={category}>
                     <div style={{ fontWeight: 'bold', margin: '15px' }}>
@@ -57,7 +48,6 @@ export default function SoliderArray() {
                     </div>
                 </div>
             ))}
-            <hr />
         </div>
     );
 }
