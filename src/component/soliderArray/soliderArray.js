@@ -10,7 +10,7 @@ export default function SoliderArray() {
     const { soldiers } = useContext(SoldierContext);
 
     const categorizeSoldiers = () => {
-        return soldiers.reduce((acc, soldier) => {
+        return soldiers.reduce((groups, soldier) => {
             let category;
 
             if (filterType === 'Role_Rank') {
@@ -21,12 +21,12 @@ export default function SoliderArray() {
                 category = soldier[filterType];
             }
 
-            if (!acc[category]) {
-                acc[category] = [];
+            if (!groups[category]) {
+                groups[category] = [];
             }
 
-            acc[category].push(soldier);
-            return acc;
+            groups[category].push(soldier);
+            return groups;
         }, {});
     };
 
@@ -34,14 +34,14 @@ export default function SoliderArray() {
 
     return (
         <div className={style.container}>
-                <div style={{ margin: '15px' }}>
-                    סדר לפי:
-                    <select onChange={(e) => setFilterType(e.target.value)}>
-                        <option value="City">עיר</option>
-                        <option value="City_Location">מיקום עיר בארץ</option>
-                        <option value="Gender">מין</option>
-                        <option value="Role_Rank">תפקיד + דרגה</option>
-                    </select>
+            <div style={{ margin: '15px' }}>
+                סדר לפי:
+                <select onChange={(e) => setFilterType(e.target.value)}>
+                    <option value="City">עיר</option>
+                    <option value="City_Location">מיקום עיר בארץ</option>
+                    <option value="Gender">מין</option>
+                    <option value="Role_Rank">תפקיד + דרגה</option>
+                </select>
             </div>
             <hr />
 
