@@ -9,7 +9,7 @@ export default function SoliderForm() {
         User_Name: '',
         First_Name: '',
         Last_Name: '',
-        Gender: ' ז',
+        Gender: '',
         Role: ' מפתח תוכנה',
         Rank: ` קא\ב`,
         City: ' ראשון לציון',
@@ -51,7 +51,7 @@ export default function SoliderForm() {
         !newSolider.Mispar_Ishi ||
         !newSolider.Gender;
 
-    return (
+        return (
         <div className={styles.filed}>
             <input type="text" className={styles.input} value={newSolider.First_Name} placeholder="שם פרטי" name="First_Name" required onChange={(e) => handleValidat('First_Name', e.target.value, /^(?=[a-zA-Zא-ת0-9._]{3,8}$)(?!.*[_.]{2})[^_.].*[^_.]$/, 'שם פרטי אינו תקין')} />
             <p className="error">{errorSolider.First_Name}</p>
@@ -62,12 +62,13 @@ export default function SoliderForm() {
             <input className={styles.input} value={newSolider.User_Name} placeholder="שם משתמש" name="User_Name" required onChange={(e) => handleValidat('User_Name', e.target.value, /^(?=.*[a-z])(?=.*[A-Z])(?!.*[^a-zA-Z0-9])(?!.*[0-9]{4,}).*$/, 'שם משתמש אינו תקין')} />
             <p className="error">{errorSolider.User_Name}</p>
             <label>מין </label>
-            <select name="Gender" value={newSolider.Gender} onChange={(e) => setNewSolider({ ...newSolider, 'Gender': e.target.value })}>
-                <option>זכר</option>
-                <option>נקבה</option>
+            <select name="Gender" value={newSolider.Gender} onChange={(e) => setNewSolider({ ...newSolider, 'Gender': e.target.value === 'זכר' ? 'ז' : 'נ'})}>
+                <option>בחר/י מהרשימה</option>
+                <option value="זכר">זכר</option>
+                <option value="נקבה">נקבה</option>
             </select>
             <div className="displayButton">
-                <button onClick={handleSubmit} className={isButtonDisabled ? "soliderbutton" : "button"} disabled={isButtonDisabled}>הוספה</button>
+                <button onClick={handleSubmit} className={isButtonDisabled ? "disabledButton" : "button"} disabled={isButtonDisabled}>הוספה</button>
             </div>
         </div>
     )

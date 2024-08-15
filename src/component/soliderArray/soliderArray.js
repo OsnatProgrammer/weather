@@ -4,11 +4,11 @@ import { SoldierContext } from "../../context/soliderContex";
 import style from "./soliderArray.module.css";
 import SelectSort from "../selectSort/selectSort";
 
-export default function SoliderArray() {
+export default function SoliderArray(props) {
 
     const [filterType, setFilterType] = useState('City_Location');
 
-    const { soldiers } = useContext(SoldierContext);
+    const { soldiers, selectedSoldiers } = useContext(SoldierContext);
 
     const categorizeSoldiers = () => {
         return soldiers.reduce((groups, soldier) => {
@@ -43,7 +43,10 @@ export default function SoliderArray() {
                     </div>
                     <div className={style.list}>
                         {categorizedSoldiers[category].map(solider => (
-                            <SoliderCard key={solider.Mispar_Ishi} solider={solider} />
+                            <SoliderCard key={solider.Mispar_Ishi} solider={solider} isSelected={selectedSoldiers.includes(solider.Mispar_Ishi)}
+                            toggleSelecteSoldier={props.toggleSelecteSoldier} 
+                             />
+                        
                         ))}
                     </div>
                 </div>

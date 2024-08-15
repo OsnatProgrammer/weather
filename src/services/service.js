@@ -38,9 +38,18 @@ export const getWeather = async (lat, lon) => {
 };
 
 export const getSoldiers = async () => {
-    let url = `http://localhost:3001/getAllSoldiers`;
+    let url = `${API_URL}/getAllSoldiers`;
     try {
         return await apiGet(url);
+    } catch (err) {
+        return err.response;
+    }
+};
+
+export const updateMadorSoldiers = async (data) => {
+    let url = `${API_URL}/updateMadorSoldiers`;
+    try {
+        return await apiMethod(url, "PUT", data);
     } catch (err) {
         return err.response;
     }

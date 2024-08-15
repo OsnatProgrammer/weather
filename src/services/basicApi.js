@@ -12,7 +12,6 @@ export const apiGet = async (_url) => {
                 user_name: currentUser.name
             }
         })
-        console.log("resp", resp);
         return resp;
     } catch (err) {
         throw err;
@@ -22,7 +21,6 @@ export const apiGet = async (_url) => {
 export const apiWeather = async (_url) => {
     try {
         let resp = await axios.get(_url)
-        console.log("resp", resp);
         return resp;
     } catch (err) {
         throw err;
@@ -30,7 +28,7 @@ export const apiWeather = async (_url) => {
 }
 
 // This function is used to post, delete, put, patch
-export const apiMethod = async (_url, _method, _body = {}) => {
+export const apiMethod = async (_url, _method, _body) => {
     try {
         let resp = await axios({
             url: _url,
@@ -38,7 +36,7 @@ export const apiMethod = async (_url, _method, _body = {}) => {
             data: _body,
             headers: {
                 user_mispar_ishi: _body.password,
-                User_Name: _body.name
+                user_name: _body.name
             }
         })
         return resp;

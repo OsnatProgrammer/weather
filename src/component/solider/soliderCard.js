@@ -4,7 +4,7 @@ import style from "./soliderCard.module.css"
 export default function SoliderCard(props) {
 
     return (
-        <div className={style.card}>
+        <div className={style.card} onClick={()=>props.toggleSelecteSoldier(props.solider.Mispar_Ishi)}>
             <div className={style.imgCard}>
                 {props.solider.Is_Officer === true ? <img src='/assets/kazin.png' style={{ width: '80%' }} />
                     : props.solider.Gender === 'ז' ?
