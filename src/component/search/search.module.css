@@ -1,6 +1,5 @@
-/* search.module.css */
 .selectionContainer {
-    position: relative;
+    display: flex;
     width: 200px;
 }
 
@@ -32,7 +31,7 @@
 }
 
 .option:hover {
-    background-color: #e0e0e0; /* Grayish background */
+    background-color: #e0e0e0; 
 }
 
 .selectedOption {
@@ -52,5 +51,7 @@
 }
 
 .searchButton:hover svg {
-    stroke: #000; /* Change color on hover */
+    stroke: #000; 
 }
+
+  

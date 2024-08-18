@@ -62,7 +62,7 @@ export default function SoliderForm() {
             <input className={styles.input} value={newSolider.User_Name} placeholder="שם משתמש" name="User_Name" required onChange={(e) => handleValidat('User_Name', e.target.value, /^(?=.*[a-z])(?=.*[A-Z])(?!.*[^a-zA-Z0-9])(?!.*[0-9]{4,}).*$/, 'שם משתמש אינו תקין')} />
             <p className="error">{errorSolider.User_Name}</p>
             <label>מין </label>
-            <select name="Gender" value={newSolider.Gender === 'ז' ? 'זכר' : newSolider.Gender === 'נ' ? 'נקבה' : ''} onChange={(e) => { console.log("e.target.value"); setNewSolider({ ...newSolider, 'Gender': e.target.value === 'זכר' ? 'ז' : 'נ' }) }}>
+            <select name="Gender" value={newSolider.Gender === 'ז' ? 'זכר' : newSolider.Gender === 'נ' ? 'נקבה' : ''} onChange={(e) => { setNewSolider({ ...newSolider, 'Gender': e.target.value === 'זכר' ? 'ז' : 'נ' }) }}>
                 <option value='' disabled>בחר/י מהרשימה</option>
                 <option value="זכר">זכר</option>
                 <option value="נקבה">נקבה</option>

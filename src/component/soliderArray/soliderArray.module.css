@@ -9,7 +9,7 @@ select {
 .list {
     display: flex;
     flex-wrap: wrap;
-    max-height: 130px;
+    max-height: 134px;
     overflow-y: auto;
 }
 
