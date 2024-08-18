@@ -7,6 +7,10 @@ import { HistoryContext } from '../../context/historyContext';
 export default function Header() {
 
     const { historySearch } = useContext(HistoryContext);
+    
+    const disconnection = () => {
+        localStorage.removeItem('user');
+    }
 
     return (
         <div className={styles.header}>
@@ -15,6 +19,9 @@ export default function Header() {
                 <li><Link to="/mador">מדור</Link></li>
                 <li><Link to="/history">היסטוריה - {historySearch.length}</Link></li>
             </ul>
+            <div className={styles.leftMenu}>
+                <Link to="/login" onClick={() => disconnection()}>התנתקות</Link>
+            </div>
         </div>
     )
 }
