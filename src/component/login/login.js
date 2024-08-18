@@ -14,8 +14,7 @@ export default function Login() {
 
     const nav = useNavigate();
 
-    function validateForm(userName, password) {
-
+    const validateForm = (userName, password) => {
         const errors = {};
         const usernameRegex = /^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z]*[0-9]?[a-zA-Z]*[0-9]?[a-zA-Z]*[0-9]?$/;
 
@@ -33,7 +32,7 @@ export default function Login() {
         return Object.keys(errors).length === 0;
     }
 
-    async function handleSubmit(event) {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         if (validateForm(userName, password)) {
             const res = await login({ name: userName, password: password })

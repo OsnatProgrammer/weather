@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import style from './search.module.css'
 
@@ -9,6 +8,11 @@ export default function Search(props) {
     useEffect(() => {
         props.handleClickSearch()
     }, [props.currentCity])
+
+    const handleSearch = (city) => {
+        const current = props.cities.find((c) => { return c.city == city })
+        props.setCurrentCity(current.city);
+    }
 
     return (
         <div className={`${style.selectionContainer} center`}>

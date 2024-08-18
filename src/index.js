@@ -5,12 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { UserProvider } from './context/userContext';
 import { SoldierProvider } from './context/soliderContex';
+import { HistoryProvider } from './context/historyContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <UserProvider>
     <SoldierProvider>
-      <App />
+      <HistoryProvider>
+        <App />
+      </HistoryProvider>
     </SoldierProvider>
   </UserProvider>
 );

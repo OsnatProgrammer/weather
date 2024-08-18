@@ -5,18 +5,17 @@ import styles from "./home.module.css";
 import Search from './../search/search'
 import Weather from "../weather/weather";
 import Header from "../header/header";
+import { HistoryContext } from '../../context/historyContext';
 
 export default function Home() {
 
     const [cities, SetCities] = useState([])
-    const [currentCity, SetCurrentCity] = useState("Jerusalem")
     const [loading, setLoading] = useState(true);
     const [loadingWeather, setLoadingWeather] = useState(true);
-    const [latlonLocation, setLatlonLocation] = useState({ lat: 31.7667, lon: 35.2333 })
     const [weather, setWeather] = useState([])
-    const [history, setHistory] = useState([])
-
+    
     const { user } = useContext(UserContext);
+    const { historySearch, setHistorySearch, currentCity, setCurrentCity, latlonLocation, setLatlonLocation } = useContext(HistoryContext);
 
     useEffect(() => {
         getAllCities().then((cities) => {
@@ -27,7 +26,6 @@ export default function Home() {
             }
             setLoading(false)
         })
-        handleClickSearch();
     }, [])
 
     useEffect(() => {
@@ -38,21 +36,23 @@ export default function Home() {
         await getWeather(latlonLocation.lat, latlonLocation.lon).then((weather) => {
             setWeather(weather);
             setLoadingWeather(false)
+            if (historySearch[historySearch.length - 1] !== weather.data?.timezone) {
+
+                const newHistory = [...historySearch, weather.data?.timezone];
+
+                if (newHistory.length > 5) {
+                    newHistory.shift();
+                }
+                setHistorySearch(newHistory)
+            }
         })
-
-        const newHistory = [...history, currentCity];
-
-        if (newHistory.length > 5) {
-            newHistory.shift();
-        }
-        setHistory(newHistory)
     }
 
-    async function handleClickSearch() {
+    const handleClickSearch = async () => {
         currentCity && await getLatAndLon(currentCity).then((data) => { handleLocation(data) })
     }
 
-    async function handleLocation(location) {
+    const handleLocation = (location) => {
         if (location) {
             setLatlonLocation({ lat: location.data.latitude, lon: location.data.longitude })
         }
@@ -64,7 +64,7 @@ export default function Home() {
             <h3 className="center">שלום {user.First_Name} {user.Last_Name}</h3>
             {!loading ? (
                 <div>
-                    <Search cities={cities} SetCurrentCity={SetCurrentCity} currentCity={currentCity} handleClickSearch={handleClickSearch} />
+                    <Search cities={cities} setCurrentCity={setCurrentCity} currentCity={currentCity} handleClickSearch={handleClickSearch} />
                 </div>) : (<div>loading...</div>)
             }
             {!loadingWeather ? (
