@@ -1,0 +1,56 @@
+/* search.module.css */
+.selectionContainer {
+    position: relative;
+    width: 200px;
+}
+
+.customSelect {
+    padding: 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    background-color: #fff;
+    width: 100%;
+}
+
+.optionsContainer {
+    position: absolute;
+    width: 100%;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 1000;
+    margin-top: 2px;
+    list-style-type: none;
+    padding: 0;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.option {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.option:hover {
+    background-color: #e0e0e0; /* Grayish background */
+}
+
+.selectedOption {
+    font-weight: bold;
+}
+
+.searchButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 5px;
+}
+
+.searchButton svg {
+    transition: stroke 0.3s ease;
+}
+
+.searchButton:hover svg {
+    stroke: #000; /* Change color on hover */
+}

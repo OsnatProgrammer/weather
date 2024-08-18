@@ -8,10 +8,10 @@ export default function SoliderArray(props) {
 
     const [filterType, setFilterType] = useState('City_Location');
 
-    const { soldiers, selectedSoldiers } = useContext(SoldierContext);
+    const { soliders, selectedSoldiers } = useContext(SoldierContext);
 
     const categorizeSoldiers = () => {
-        return soldiers.reduce((groups, soldier) => {
+        return soliders.reduce((groups, soldier) => {
             let category;
 
             if (filterType === 'Role_Rank') {
@@ -35,7 +35,7 @@ export default function SoliderArray(props) {
 
     return (
         <div >
-            <SelectSort setFilterType={setFilterType} />
+            <div> <SelectSort setFilterType={setFilterType} /></div>
             {Object.keys(categorizedSoldiers).map(category => (
                 <div key={category}>
                     <div style={{ fontWeight: 'bold', margin: '15px' }}>
@@ -44,9 +44,9 @@ export default function SoliderArray(props) {
                     <div className={style.list}>
                         {categorizedSoldiers[category].map(solider => (
                             <SoliderCard key={solider.Mispar_Ishi} solider={solider} isSelected={selectedSoldiers.includes(solider.Mispar_Ishi)}
-                            toggleSelecteSoldier={props.toggleSelecteSoldier} 
-                             />
-                        
+                                toggleSelecteSoldier={props.toggleSelecteSoldier}
+                            />
+
                         ))}
                     </div>
                 </div>

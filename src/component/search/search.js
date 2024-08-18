@@ -1,5 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
+import style from './search.module.css'
 
 export default function Search(props) {
 
@@ -10,7 +11,7 @@ export default function Search(props) {
     }, [props.currentCity])
 
     return (
-        <div className="center">
+        <div className={style.selectionContainer}>
             <select defaultValue={props.currentCity} ref={selectRef}>
                 {props.cities.map((city, i) => {
                     return <option key={i} value={city.city}>{city.city}</option>

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./soliderForm.module.css";
 import { SoldierContext } from "../../context/soliderContex";
 
@@ -27,7 +27,7 @@ export default function SoliderForm() {
         Gender: '',
     });
 
-    const { soldiers, setSoldiers } = useContext(SoldierContext);
+    const { soliders, setSoliders } = useContext(SoldierContext);
 
     const handleValidat = (field, field_value, validation, error) => {
         let isValid = validation.test(field_value);
@@ -36,7 +36,7 @@ export default function SoliderForm() {
     }
 
     const handleSubmit = () => {
-        setSoldiers([...soldiers, newSolider])
+        setSoliders([...soliders, newSolider])
         setNewSolider(defaultSoldier)
     }
 
@@ -51,7 +51,7 @@ export default function SoliderForm() {
         !newSolider.Mispar_Ishi ||
         !newSolider.Gender;
 
-        return (
+    return (
         <div className={styles.filed}>
             <input type="text" className={styles.input} value={newSolider.First_Name} placeholder="שם פרטי" name="First_Name" required onChange={(e) => handleValidat('First_Name', e.target.value, /^(?=[a-zA-Zא-ת0-9._]{3,8}$)(?!.*[_.]{2})[^_.].*[^_.]$/, 'שם פרטי אינו תקין')} />
             <p className="error">{errorSolider.First_Name}</p>
@@ -62,8 +62,8 @@ export default function SoliderForm() {
             <input className={styles.input} value={newSolider.User_Name} placeholder="שם משתמש" name="User_Name" required onChange={(e) => handleValidat('User_Name', e.target.value, /^(?=.*[a-z])(?=.*[A-Z])(?!.*[^a-zA-Z0-9])(?!.*[0-9]{4,}).*$/, 'שם משתמש אינו תקין')} />
             <p className="error">{errorSolider.User_Name}</p>
             <label>מין </label>
-            <select name="Gender" value={newSolider.Gender} onChange={(e) => setNewSolider({ ...newSolider, 'Gender': e.target.value === 'זכר' ? 'ז' : 'נ'})}>
-                <option>בחר/י מהרשימה</option>
+            <select name="Gender" value={newSolider.Gender === 'ז' ? 'זכר' : newSolider.Gender === 'נ' ? 'נקבה' : ''} onChange={(e) => { console.log("e.target.value"); setNewSolider({ ...newSolider, 'Gender': e.target.value === 'זכר' ? 'ז' : 'נ' }) }}>
+                <option value='' disabled>בחר/י מהרשימה</option>
                 <option value="זכר">זכר</option>
                 <option value="נקבה">נקבה</option>
             </select>

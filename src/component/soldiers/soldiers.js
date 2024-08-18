@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import styles from "./soldiers.module.css";
 import HeaderForm from "../headerForm/soldierHeader";
 import SoliderForm from "../soliderForm/soliderForm";
@@ -8,9 +8,9 @@ import { updateMadorSoldiers } from "../../services/service";
 import { UserContext } from "../../context/userContext";
 
 
-export default function Soldiers() {
+export default function Soliders() {
 
-    const { setOpenPopup, soldiers, setSoldiers, selectedSoldiers, setSelectedSoldiers } = useContext(SoldierContext);
+    const { setOpenPopup, soliders, setSoliders, selectedSoldiers, setSelectedSoldiers } = useContext(SoldierContext);
     const { user } = useContext(UserContext);
 
     const toggleSelecteSoldier = (id) => {
@@ -20,7 +20,7 @@ export default function Soldiers() {
     };
 
     const selectAll = () => {
-        setSelectedSoldiers(soldiers.map(soldier => soldier.Mispar_Ishi));
+        setSelectedSoldiers(soliders.map(soldier => soldier.Mispar_Ishi));
     };
 
     const clearAll = () => {
@@ -33,7 +33,7 @@ export default function Soldiers() {
             alert(` אינן יכול למחוק את עצמך כל עוד הנך מחובר! ${user.User_Name}`);
         }
 
-        setSoldiers(prev => prev.filter(soldier =>
+        setSoliders(prev => prev.filter(soldier =>
             !selectedSoldiers.includes(soldier.Mispar_Ishi) || soldier.Mispar_Ishi === user.Mispar_Ishi
         ));
 
@@ -42,7 +42,7 @@ export default function Soldiers() {
         );
     }
 
-    const saveSoldiers = async () => updateMadorSoldiers({ "newSoldiers": [...soldiers], name: user.User_Name, password: user.Mispar_Ishi });
+    const saveSoldiers = async () => updateMadorSoldiers({ "newSoldiers": [...soliders], name: user.User_Name, password: user.Mispar_Ishi });
 
     return (
         <div className={styles.container}>
@@ -59,7 +59,7 @@ export default function Soldiers() {
                 <div className={styles.scrollableSoldierArray}>
                     <SoliderArray toggleSelecteSoldier={toggleSelecteSoldier} selectedSoldiers={selectedSoldiers} />
                 </div>
-                {(soldiers.length > 0) && <div style={{ borderTop: '1px solid #e0e0e0' }}>
+                {(soliders.length > 0) && <div style={{ borderTop: '1px solid #e0e0e0' }}>
                     <div style={{ display: 'flex', justifyContent: 'end', margin: '0px 10px' }}>
                         <div style={{ margin: '10px px' }}>
                             <button className="button" onClick={selectAll}>בחר הכל</button>

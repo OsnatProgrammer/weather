@@ -1,32 +1,34 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import styles from "./mador.module.css";
 import { getSoldiers } from "../../services/service";
 import Header from '../header/header';
-import Soldiers from '../soldiers/soldiers';
+import Soliders from '../soldiers/soldiers';
 import { SoldierContext } from '../../context/soliderContex';
 
 export default function Mador() {
 
-    const { setSoldiers, openPopup, setOpenPopup } = useContext(SoldierContext);
+    const { setSoliders, openPopup, setOpenPopup, soliders } = useContext(SoldierContext);
+
+    const getAllSoldiers = () => {
+        getSoldiers().then(data => setSoliders(data.data))
+    }
 
     useEffect(() => {
         getAllSoldiers()
     }, [])
 
-
-    const getAllSoldiers = () => {
-        getSoldiers().then(data => setSoldiers(data.data))
-    }
-
+    useEffect(() => {
+        setSoliders(soliders.sort((s1, s2) => s1.First_Name.localeCompare(s2.First_Name)))
+    }, [soliders])
 
     return (
         <div>
             <Header />
-            <div className={openPopup ? styles.blurred : ''}>
+            <div>
                 <div className={styles.container}>
                     {!openPopup ?
                         (<button className='button' onClick={() => setOpenPopup(!openPopup)}>פתיחת חלון</button>)
-                        : <Soldiers />
+                        : <Soliders />
                     }
                 </div>
             </div>

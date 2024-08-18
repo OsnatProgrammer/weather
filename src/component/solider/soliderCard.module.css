@@ -3,10 +3,16 @@
     border-radius: 8px;
     margin: 10px;
     padding: 12px;
-    width: 185px;
+    width: 210px;
     align-items: center;
     display: flex;
-}
+    transition: border 0.2s ease, width 0.2s ease;
+  }
+  
+  .card.selected {
+    border: solid 4px;
+    width: 205px;
+  }
 
 .checkbox {
     position: absolute;

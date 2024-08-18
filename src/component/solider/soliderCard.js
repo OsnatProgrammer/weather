@@ -4,7 +4,7 @@ import style from "./soliderCard.module.css"
 export default function SoliderCard(props) {
 
     return (
-        <div className={style.card} onClick={()=>props.toggleSelecteSoldier(props.solider.Mispar_Ishi)}>
+        <div className={`${style.card} ${props.isSelected ? style.selected : ""}`} onClick={() => props.toggleSelecteSoldier(props.solider.Mispar_Ishi)}>
             <div className={style.imgCard}>
                 {props.solider.Is_Officer === true ? <img src='/assets/kazin.png' style={{ width: '80%' }} />
                     : props.solider.Gender === 'ז' ?
@@ -30,8 +30,8 @@ export default function SoliderCard(props) {
             </div>
             <div>
                 <h4 style={{ fontWeight: "bold", margin: '5px' }}>{`${props.solider.First_Name} ${props.solider.Last_Name}`}</h4>
-                <p style={{ fontWeight: "bold", margin: "2px" }}>{props.solider.Rank}</p>
-                <p style={{ margin: "2px" }}>{props.solider.Role}</p>
+                <p style={{ fontWeight: "bold", margin: "2px" }}>{props.solider.Role}, {props.solider.Age}</p>
+                <p style={{ margin: "2px" }}>{props.solider.Role}, {props.solider.Rank}</p>
             </div>
         </div>
     )
