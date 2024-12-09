@@ -6,10 +6,13 @@ import { HistoryContext } from '../../context/historyContext';
 
 export default function Header() {
 
-    const { historySearch } = useContext(HistoryContext);
-    
+    const { historySearch, setHistorySearch, setCurrentCity, setLatlonLocation } = useContext(HistoryContext);
+
     const disconnection = () => {
         localStorage.removeItem('user');
+        setHistorySearch([])
+        setCurrentCity("Jerusalem")
+        setLatlonLocation({ lat: 31.7667, lon: 35.2333 })
     }
 
     return (

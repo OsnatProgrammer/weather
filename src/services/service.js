@@ -26,16 +26,16 @@ export const getLatAndLon = async (city) => {
         return err.response;
     }
 };
-
-export const getWeather = async (lat, lon) => {
-    const key = '6f11fa9760902e1597265ad205f05d2c'
-    let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${key}`;
-    try {
-        return await apiWeather(url);
-    } catch (err) {
-        return err.response;
-    }
-};
+// Changes from API to files
+// export const getWeather = async (lat, lon) => {
+//     const key = '6f11fa9760902e1597265ad205f05d2c'
+//     let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${key}`;
+//     try {
+//         return await apiWeather(url);
+//     } catch (err) {
+//         return err.response;
+//     }
+// };
 
 export const getSoldiers = async () => {
     let url = `${API_URL}/getAllSoldiers`;

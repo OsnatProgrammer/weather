@@ -11,7 +11,7 @@ export default function Search(props) {
 
     const handleSearch = (city) => {
         const current = props.cities.find((c) => { return c.city == city })
-        props.setCurrentCity(current.city);
+            props.setCurrentCity(current.city);
     }
 
     return (
